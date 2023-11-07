@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Apresentacao", "01 - Apresentacao", "{9CB21ED9-7863-4E9A-90AC-B88706CD61E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - API", "02 - API", "{37FCB3A4-D88F-41AA-A09A-59F77A8F55A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 - Servico", "03 - Servico", "{02873376-D14A-4A12-878D-6A62B16F240A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - Repositorio", "04 - Repositorio", "{F38ECC89-9379-40B9-B8CA-A6A1887314CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 - Dominio", "05 - Dominio", "{EDF09B17-6894-45B6-BC93-3290588D0874}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06 - Testes", "06 - Testes", "{29CED0FD-77EB-458E-8483-D2573EC77426}"
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F64A5E93-C9A2-4C6A-911E-A65EC98CDFD7}
+	EndGlobalSection
+EndGlobal
