@@ -1,0 +1,109 @@
+﻿@model IEnumerable<SeguroVeiculos.Web.Models.SeguroViewModel>
+
+@{
+    ViewBag.Title = "Segurados";
+}
+
+<style>
+    .cor-orange {
+        color: #ff6a00 !important
+    }
+
+    .cor-red {
+        color: firebrick !important
+    }
+
+    #enviar{
+        margin-top:24px;
+    }
+</style>
+
+<h2>Segurados</h2>
+
+<div class="row">
+    <div class="col-xs-offset-10 col-sm-offset-10 col-lg-offset-10 text-right">
+        @Html.ActionLink("Novo", "Create","Seguro",new { @class="btn btn-primary form-control" })
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <label>Nome do segurado</label>
+        <input name="nomeSegurado" id="nomeSegurado"  type="text" />
+    </div>
+     <div class="col-2">
+        <label>Documento do segurado</label>
+        <input name="documentoSegurado" id="documentoSegurado" type="text" />
+    </div>
+    <div class="col-xs-8 col-sm-8 col-lg-8 text-right">       
+        <button id="enviar" onclick="FiltrarSegurador()">Filtrar</button>
+    </div>
+</div>
+
+@if (Model.ToList().Count > 0) {
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">
+                    Nome Segurado
+                </th>
+                <th scope="col">
+                    Documento Segurado
+                </th>
+                <th scope="col">
+                    Idade Segurado
+                </th>
+                <th scope="col">
+                    Marca Veiculo
+                </th>
+                <th scope="col">
+                    Modelo Veiculo
+                </th>
+                <th scope="col">
+                    Valor Veiculo
+                </th>
+                <th scope="col">
+                    Valor Seguro
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NomeSegurado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DocumentoSegurado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdadeSegurado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MarcaVeiculo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ModeloVeiculo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ValorVeiculo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ValorSeguro)
+                    </td>                  
+                  
+                </tr>
+            }
+        </tbody>
+</table>
+
+} 
+
+<script>
+    function FiltrarSegurador(){
+        var nome = $("#nomeSegurado").val();
+        var documento = $("#documentoSegurado").val();
+
+        window.location = "/Seguro/Listar?nomeSegurado=" + nome + "&documentoSegurado=" + documento;
+    }
+</script>

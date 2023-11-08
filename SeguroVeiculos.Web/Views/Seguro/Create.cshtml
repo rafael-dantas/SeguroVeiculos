@@ -1,0 +1,89 @@
+﻿@model SeguroVeiculos.Web.Models.SeguroViewModel
+
+@{
+    ViewBag.Title = "Novo";
+}
+
+<h2>Novo Cliente</h2>
+
+<div class="row">
+    <div class="col-md-offset-10 col-lg-offset-10">
+        @Html.ActionLink("Voltar", "Index", "Seguro", new { @class = "btn btn-default form-control" })
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-11">
+        @if (ViewBag.Status != null)
+        {
+            if (ViewBag.Status.Status)
+            {
+                <p style="color:green">Cliente Inserido com Sucesso!</p>
+            }
+            else
+            {
+                <p style="color:red">ATENÇÃO: @ViewBag.Status.Descricao</p>
+            }
+        }
+
+    </div>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <hr />
+    <div class="row">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="col-md-7 col-lg-7">
+            <label class="form-label">Nome Segurado</label>
+            @Html.EditorFor(model => model.NomeSegurado, new { htmlAttributes = new { @class = "form-control", autocomplete = "off"} })
+            <span id="cpf_valid" style="display:none;"><small><i>Nome obrigatório</i></small></span>
+
+        </div>
+        <div class="col-md-2 col-lg-2">
+            <label class="form-label">Idade Segurado</label>
+            @Html.EditorFor(model => model.IdadeSegurado, new { htmlAttributes = new { @class = "form-control", autocomplete = "off", type = "number"} })
+            <span id="cpf_valid" style="display:none;"><small><i>Nome obrigatório</i></small></span>
+
+        </div>
+
+        <div class="col-md-3 col-lg-3">
+            <label class="form-label">CPF</label>
+            @Html.EditorFor(model => model.DocumentoSegurado, new { htmlAttributes = new { @class = "form-control", maxlength = "11" } })
+            <span id="nome_valid" style="display:none;"><small><i>CPF é obrigatório</i></small></span>
+        </div>
+
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-5">
+            <label class="form-label">Marca veículo</label>
+            @Html.EditorFor(model => model.MarcaVeiculo, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+
+        </div>
+        <div class="col-md-5">
+            <label class="form-label">Modelo veículo</label>
+            @Html.EditorFor(model => model.ModeloVeiculo, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+
+        </div>
+        <div class="col-md-2">
+            <label class="form-label">>Valor do veículo</label>
+            @Html.EditorFor(model => model.ValorVeiculo, new { htmlAttributes = new { @class = "form-control", autocomplete = "off" } })
+
+        </div>     
+
+    </div>
+    <br />
+    <div class="row">
+        <div class="form-group">
+            <div class="col-md-offset-10">
+                <input type="submit" value="Enviar" class="btn btn-success form-control" />
+            </div>
+        </div>
+    </div>
+}
