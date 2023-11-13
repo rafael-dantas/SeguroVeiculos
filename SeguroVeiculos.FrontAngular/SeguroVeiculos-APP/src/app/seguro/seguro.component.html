@@ -1,0 +1,29 @@
+<div class="form-container">
+  <div class="form-content">
+    <div class="form-field">
+  <input type="text"  id="nomeOuDocumento" name="nomeOuDocumento" placeholder="Digite o nome ou documento..." #nomeOuDocumento />
+  <button id="enviar" (click)="getSeguros(nomeOuDocumento.value)">Filtrar</button>
+    </div>
+</div>
+</div>
+
+<table class="table">
+  <tr>
+    <th>Nome Segurado</th>
+    <th>Documento Segurado</th>
+    <th>Idade</th>
+    <th>Marca veiculo</th>
+    <th>Modelo veiculo</th>
+    <th>Valor veiculo</th>
+    <th>parcela seguro</th>
+  </tr>
+  <tr *ngFor="let item of seguros">
+    <td>{{item.nomeSegurado}}</td>
+    <td>{{item.documentoSegurado}}</td>
+    <td>{{item.idadeSegurado}}</td>
+    <td>{{item.marcaVeiculo}}</td>
+    <td>{{item.modeloVeiculo}}</td>
+    <td>{{item.valorVeiculo}}</td>
+    <td>{{item.valorSeguro}}</td>
+  </tr>
+</table>

@@ -22,11 +22,9 @@ namespace SeguroVeiculos.Web.Controllers
         }
 
         // GET: SeguroController
-        public ActionResult Listar(string nomeSegurado, string documentoSegurado)
+        public ActionResult Listar(string nomeOudocumento)
         {
-            var lista = _seguroIntegracao.ListarSegurados(nomeSegurado, documentoSegurado)
-                                         .Where(x => (string.IsNullOrEmpty(nomeSegurado) || x.NomeSegurado.Contains(nomeSegurado))
-                                                  && (string.IsNullOrEmpty(documentoSegurado) || x.DocumentoSegurado == documentoSegurado)).ToList();
+            var lista = _seguroIntegracao.ListarSegurados(nomeOudocumento);
             return View("Index", lista);
         }       
 

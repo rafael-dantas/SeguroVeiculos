@@ -28,9 +28,31 @@ namespace SeguroVeiculos.Servico
             }
         }
 
-        public IEnumerable<Seguro> ListaSeguros(string nomeSegurado, string documentoSegurado)
+        public IEnumerable<Seguro> ListaSeguros(string nomeOuDocumento)
         {
-            return _seguroRepositorio.ListaDeSeguros(nomeSegurado, documentoSegurado);
+            string nome = null;
+            string documento = null;
+
+            if (EhDocumento(nomeOuDocumento))
+            {
+                documento = nomeOuDocumento;
+            }
+            else
+            {
+                nome = nomeOuDocumento;
+            }
+
+            return _seguroRepositorio.ListaDeSeguros(nome, documento);
+        }
+
+        private bool EhDocumento(string nomeOuDocumento)
+        {
+            if(long.TryParse(nomeOuDocumento, out _))
+            {
+                return nomeOuDocumento.Length == 11;                
+            }
+
+            return false;
         }
     }
 }

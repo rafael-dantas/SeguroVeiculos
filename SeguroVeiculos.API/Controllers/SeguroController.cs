@@ -27,10 +27,17 @@ namespace SeguroVeiculos.API.Controllers
             }
         }
 
+        [HttpGet("lista")]
+        public IActionResult Get()
+        {
+            var response = _seguroServico.ListaSeguros(null);
+            return response.Count() > 0 ? Ok(SeguroResponseDTO.Criar(response.ToList())) : NotFound("Registros não encontrados");
+        }
+
         [HttpGet]
-        public IActionResult Get(string nomeSegurado, string documentoSegurado)
+        public IActionResult Get(string nomeOuDocumento)
         {            
-            var response = _seguroServico.ListaSeguros(nomeSegurado, documentoSegurado);
+            var response = _seguroServico.ListaSeguros(nomeOuDocumento);
             return response.Count() > 0 ? Ok(SeguroResponseDTO.Criar(response.ToList())) : NotFound("Registro não encontrados");
         }
     }

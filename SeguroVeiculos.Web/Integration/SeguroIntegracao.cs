@@ -39,15 +39,17 @@ namespace SeguroVeiculos.Web.Integration
             }
         }
 
-        public List<SeguroViewModel> ListarSegurados(string nomeSegurado, string documentoSegurado)
+        public List<SeguroViewModel> ListarSegurados(string nomeOudocumento)
         {
             try
             {
                 ServicePointManager.ServerCertificateValidationCallback +=
                          (sender, cert, chain, sslPolicyErrors) => true;
 
+                var endPoint = string.IsNullOrEmpty(nomeOudocumento) ? "lista" : $"?nomeOuDocumento={nomeOudocumento}";
+
                 var client = new RestClient(baseUrl);
-                var request = new RestRequest($"?nomeSegurado={nomeSegurado ?? "null"}&documentoSegurado={documentoSegurado ?? "null"}", Method.Get);
+                var request = new RestRequest(endPoint, Method.Get);
 
                 var response = client.Execute(request);
 

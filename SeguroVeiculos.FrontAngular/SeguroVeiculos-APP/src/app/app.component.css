@@ -1,0 +1,10 @@
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #f8fafc;
+  font-family: 'arial', 'Courier New', Courier, monospace;
+}
+
+h1{
+  margin-left: 10px;
+}

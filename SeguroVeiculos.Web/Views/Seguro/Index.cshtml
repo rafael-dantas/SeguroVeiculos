@@ -25,14 +25,10 @@
         @Html.ActionLink("Novo", "Create","Seguro",new { @class="btn btn-primary form-control" })
     </div>
 </div>
-<div class="row">
-    <div class="col-2">
-        <label>Nome do segurado</label>
-        <input name="nomeSegurado" id="nomeSegurado"  type="text" />
-    </div>
-     <div class="col-2">
-        <label>Documento do segurado</label>
-        <input name="documentoSegurado" id="documentoSegurado" type="text" />
+<div class="row">   
+     <div class="col-3">
+        <label>Nome ou documento</label>
+        <input name="nomeOudocumento" id="nomeOudocumento" type="text" placeholder="Digite nome ou CPF do segurado" style="width:100% !important"/>
     </div>
     <div class="col-xs-8 col-sm-8 col-lg-8 text-right">       
         <button id="enviar" onclick="FiltrarSegurador()">Filtrar</button>
@@ -101,9 +97,8 @@
 
 <script>
     function FiltrarSegurador(){
-        var nome = $("#nomeSegurado").val();
-        var documento = $("#documentoSegurado").val();
-
-        window.location = "/Seguro/Listar?nomeSegurado=" + nome + "&documentoSegurado=" + documento;
+        var nomeOudocumento = $("#nomeOudocumento").val();
+       
+        window.location = "/Seguro/Listar?nomeOuDocumento=" + nomeOudocumento;           
     }
 </script>

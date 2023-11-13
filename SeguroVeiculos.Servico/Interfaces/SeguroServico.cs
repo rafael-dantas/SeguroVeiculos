@@ -11,6 +11,6 @@ namespace SeguroVeiculos.Servico.Interfaces
     {
         bool Gravar(Seguro seguro);
 
-        IEnumerable<Seguro> ListaSeguros(string nomeSegurado, string documentoSegurado);
+        IEnumerable<Seguro> ListaSeguros(string nomeOuDocumento);
     }
 }

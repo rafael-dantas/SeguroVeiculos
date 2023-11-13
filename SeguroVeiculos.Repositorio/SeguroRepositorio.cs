@@ -20,19 +20,8 @@ namespace SeguroVeiculos.Repositorio
 
         public IEnumerable<Seguro> ListaDeSeguros(string nomeSegurado, string documentoSegurado)
         {
-            var query = _context.Seguros.AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(nomeSegurado))
-            {
-                query.Where(x => x.NomeSegurado == nomeSegurado);
-            }
-
-            if (!string.IsNullOrWhiteSpace(documentoSegurado))
-            {
-                query.Where(x => x.DocumentoSegurado == documentoSegurado);
-            }
-
-            return query.ToList();
+            return _context.Seguros.Where(x => (string.IsNullOrEmpty(nomeSegurado) || x.NomeSegurado.Contains(nomeSegurado)) 
+                                            && (string.IsNullOrEmpty(documentoSegurado) || x.DocumentoSegurado == documentoSegurado)).ToList();
         }
     }
 }

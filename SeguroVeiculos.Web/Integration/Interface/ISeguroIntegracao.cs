@@ -5,6 +5,6 @@ namespace SeguroVeiculos.Web.Integration.Interface
     public interface ISeguroIntegracao
     {
         void Gravar(SeguroViewModel model);
-        List<SeguroViewModel> ListarSegurados(string nomeSegurado, string documentoSegurado);
+        List<SeguroViewModel> ListarSegurados(string nomeOudocumento);
     }
 }
